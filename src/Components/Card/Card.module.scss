@@ -1,0 +1,194 @@
+@use "../../App";
+@import "../../App.scss";
+.grid {
+  display: grid;
+  grid-template-columns: 44px auto;
+  gap: 8px 7px;
+}
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  position: relative;
+  background-color: $contrast-color;
+  padding: 9px 10px;
+  font-weight: 800;
+  color: $main-color;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  grid-column: 1/2;
+  max-width: 44px;
+  justify-self: end;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: $contrast-color;
+    top: 50%;
+    right: -2px;
+    transform: translate(0, -50%) rotate(45deg);
+  }
+}
+.planeIcon {
+  width: 18px;
+  height: 18px;
+}
+.conformationInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  max-width: 252px;
+}
+.infoContainer {
+  display: flex;
+  background-color: $main-color;
+  box-shadow: 5px 5px 35px rgba(61, 71, 97, 0.2);
+  border-radius: 6px;
+  justify-content: space-between;
+  color: rgba(91, 99, 115, 1);
+  font-size: 14px;
+  line-height: 14px;
+  padding: 10px 12px 10px 14px;
+  align-items: center;
+  grid-column: 2/3;
+}
+.flightContainer {
+  display: flex;
+  gap: 4px;
+  max-height: 24px;
+}
+.arrivalTime {
+  @include App.tinyText;
+  text-align: center;
+  font-weight: 400;
+  color: $contrast-color;
+  background-color: $main-color;
+  padding: 2px 4px 2px 3px;
+  max-width: 26px;
+}
+.arrivalInfo {
+  display: flex;
+  align-items: center;
+  background-color: $contrast-color;
+  padding: 2px;
+}
+.arrivalCode {
+  @include App.smallText;
+  display: inline-block;
+  padding: 0 6px;
+  color: $main-color;
+  font-weight: 800;
+}
+.departureCode {
+  @include App.smallText;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 6px;
+  color: $main-color;
+  font-weight: 800;
+  background-color: $contrast-color;
+}
+.confirmationNumber {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 14px;
+}
+.arrowContainer {
+  display: flex;
+  align-items: center;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+  padding: 14px;
+  color: rgba(92, 99, 115, 1);
+  font-size: 12px;
+  line-height: 16px;
+  grid-column: 2/3;
+}
+.hideDescriptionText {
+  overflow: hidden;
+  position: relative;
+  max-height: 164px;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 120px, #f8f9fa);
+  }
+}
+
+.readMoreButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: start;
+  color: $contrast-color;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 800;
+}
+
+@media (min-width: 1394px) {
+  .tooltip {
+    max-width: 60px;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 16px;
+    &::after {
+      width: 10px;
+      height: 10px;
+      right: -4px;
+    }
+  }
+  .planeIcon {
+    width: 24px;
+    height: 24px;
+  }
+  .confirmationNumber {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  .departureCode {
+    min-width: 42px;
+    padding: 0 7px;
+  }
+  .arrivalTime {
+    padding: 2px 4px 2px 3px;
+    max-width: 34px;
+  }
+  .flightContainer {
+    max-height: 28px;
+  }
+  .description {
+    font-size: 14px;
+    line-height: 23px;
+    padding: 20px;
+  }
+  .grid {
+    grid-template-columns: 1fr 21fr;
+  }
+}
+
+@mixin tinyText {
+  font-size: 8px;
+  line-height: 8px;
+  @media (min-width: 1394px) {
+    font-size: 10px;
+    line-height: 10px;
+  }
+}

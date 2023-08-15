@@ -1,0 +1,128 @@
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local("Mulish Regular"),
+    url("./assets/fonts/Mulish-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  src:
+    local("Mulish SemiBold"),
+    url("./assets/fonts/Mulish-SemiBold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 800;
+  src:
+    local("Extra Bold"),
+    url("./assets/fonts/Mulish-ExtraBold.woff2") format("woff2");
+}
+
+$main-color: white;
+$contrast-color: #0168ca;
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Mulish", "sans-serif";
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2px;
+}
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  padding: 10px 18px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 40px;
+    width: 2px;
+    background-image: linear-gradient(to bottom, white 5px, transparent 50px),
+      linear-gradient(to top, white 5px, transparent 100px),
+      url("./assets/image/border.svg");
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h6,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1394px;
+  }
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+    padding: 10px 18px;
+  }
+}
+
+@media (min-width: 1394px) {
+  .contentContainer {
+    &::before {
+      left: 48px;
+    }
+  }
+}
+
+@mixin tinyText {
+  font-size: 8px;
+  line-height: 8px;
+  @media (min-width: 1394px) {
+    font-size: 10px;
+    line-height: 10px;
+  }
+}
+@mixin smallText {
+  font-size: 10px;
+  line-height: 10px;
+  @media (min-width: 1394px) {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
